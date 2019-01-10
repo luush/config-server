@@ -1,0 +1,23 @@
+server:
+  port: 8089
+a:
+  port: 8083
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:8083/eureka/
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/luush/open-config-center.git
+          search-paths:
+#          username: your username
+#          password: your passord
+      label: master
